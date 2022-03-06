@@ -1,8 +1,9 @@
 <!DOCTYPE html>
 <html lang="zh-TW">
+
 <head>
 	<meta charset="UTF-8">
-	<title>評價 - 日沐咖啡 Rimoo cafe</title>
+	<title>評價 - 茶思 Taiwan Tea</title>
 	<meta name="viewport" content="width=device-width,initial-scale=1.0">
 	<!-- CSS -->
 	<!-- reset -->
@@ -14,6 +15,7 @@
 	<!-- custom -->
 	<link rel="stylesheet" href="css/style.css">
 </head>
+
 <body>
 	<div class="wrapper">
 		<!-- Start header -->
@@ -21,7 +23,7 @@
 			<div class="navbar">
 				<div class="container">
 					<a href="index.html" class="brand">
-						<h1>日沐咖啡 Rimoo cafe</h1>
+						<h1>茶思 Taiwan Tea</h1>
 					</a>
 					<ul id="popup-menu" class="nav js-onePageNav">
 						<li class="nav-item">
@@ -69,7 +71,7 @@
 				</div>
 			</div>
 			<!-- End page title -->
-			
+
 			<!-- Start evaluation -->
 			<div class="hero">
 				<div class="container">
@@ -161,7 +163,7 @@
 				</div>
 			</div>
 			<div class="copyright">
-				<p>© Copyright 2020 All rights reserved</p>
+				<p>© Copyright 2022 All rights reserved</p>
 			</div>
 		</footer>
 		<!-- End footer -->
@@ -181,119 +183,120 @@
 <script src="vendor/masonry/masonry.pkgd.min.js"></script>
 <!-- Custom & initialization -->
 <script>
-$(document).ready(function(){
+	$(document).ready(function () {
 
-	// 導覽列的變化 偵測視窗滾動事件
-	$(window).scroll(function(){
-		// 抓取滾動距離
-		scrolledPx = $(this).scrollTop(); // 存取距離上方的值
-		if (scrolledPx >= 200){ // 條件判斷
-			$('.navbar').addClass('active'); // 加上 "active" class
-		} else {
-			$('.navbar').removeClass('active'); // 移除 "active" class
-		}
-	})
-
-	// 彈跳選單 or 下拉選單的基本寫法
-	$('.menu-toggle').on('click', function(){
-		$(this).toggleClass('active');
-		$('.navbar .nav').toggleClass('active');
-	})
-	$('.nav-link').on('click', function(){
-		$('.menu-toggle').removeClass('active');
-		$('.navbar .nav').removeClass('active');
-	})
-
-	// Owl-carousel initilization
-	$('.owl-carousel').owlCarousel({
-		responsive:{
-			0:{
-				items: 2
-			},
-			769:{
-				items: 4
+		// 導覽列的變化 偵測視窗滾動事件
+		$(window).scroll(function () {
+			// 抓取滾動距離
+			scrolledPx = $(this).scrollTop(); // 存取距離上方的值
+			if (scrolledPx >= 200) { // 條件判斷
+				$('.navbar').addClass('active'); // 加上 "active" class
+			} else {
+				$('.navbar').removeClass('active'); // 移除 "active" class
 			}
-		},
-		nav: true,
-		margin: 32,
-		// navText: []
-		// autoplay: true,
-		// autoplayTimeout: 1000,
-		// loop: true
+		})
+
+		// 彈跳選單 or 下拉選單的基本寫法
+		$('.menu-toggle').on('click', function () {
+			$(this).toggleClass('active');
+			$('.navbar .nav').toggleClass('active');
+		})
+		$('.nav-link').on('click', function () {
+			$('.menu-toggle').removeClass('active');
+			$('.navbar .nav').removeClass('active');
+		})
+
+		// Owl-carousel initilization
+		$('.owl-carousel').owlCarousel({
+			responsive: {
+				0: {
+					items: 2
+				},
+				769: {
+					items: 4
+				}
+			},
+			nav: true,
+			margin: 32,
+			// navText: []
+			// autoplay: true,
+			// autoplayTimeout: 1000,
+			// loop: true
+		})
+
+		// Vide
+		$('.jumbotron-video').vide({
+			'mp4': 'video/bg.mp4',
+			'webm': 'video/bg.webm',
+			'ogv': 'video/bg.ogv',
+			'poster': 'images/bg/bg001.jpg'
+		}, {
+			posterType: 'none',
+			// loop: false,
+		})
+
+		// Rellax
+		var rellax = new Rellax('.rellax', {
+			center: true
+		});
+
+		// Fancybox 3
+		$('[data-fancybox="gallery"]').fancybox({
+			// options go here
+			loop: true,
+			buttons: [
+				// "zoom",
+				//"share",
+				// "slideShow",
+				//"fullScreen",
+				//"download",
+				// "thumbs",
+				"close"
+			],
+			infobar: false,
+			// hideScrollbar: true
+		})
+
+		// Scrollreveal
+		ScrollReveal().reveal('.js-fadeInBottom', {
+			origin: 'bottom',
+			distance: '50px',
+			delay: 300,
+			duration: 800
+			// reset: true
+		});
+		ScrollReveal().reveal('.js-fadeInLeft', {
+			origin: 'left',
+			distance: '50px',
+			delay: 300,
+			duration: 800
+			// reset: true
+		});
+		ScrollReveal().reveal('.js-fadeInRight', {
+			origin: 'right',
+			distance: '50px',
+			delay: 300,
+			duration: 800
+			// reset: true
+		});
+		ScrollReveal().reveal('.service-item', {
+			origin: 'bottom',
+			distance: '50px',
+			duration: 800,
+			interval: 300
+			// reset: true
+		});
+
+		// OnePageNav
+		$('.js-onePageNav').onePageNav({
+			currentClass: 'active'
+		})
+
+		// Masonry
+		$('.masonry-row').masonry({
+			itemSelector: '.masonry-col'
+		})
 	})
-
-	// Vide
-	$('.jumbotron-video').vide({
-		'mp4': 'video/bg.mp4',
-		'webm': 'video/bg.webm',
-		'ogv': 'video/bg.ogv',
-		'poster': 'images/bg/bg001.jpg'
-	},{
-		posterType: 'none',
-		// loop: false,
-	})
-
-	// Rellax
-	var rellax = new Rellax('.rellax', {
-		center: true
-	});
-
-	// Fancybox 3
-	$('[data-fancybox="gallery"]').fancybox({
-		// options go here
-		loop: true,
-		buttons: [
-			// "zoom",
-			//"share",
-			// "slideShow",
-			//"fullScreen",
-			//"download",
-			// "thumbs",
-			"close"
-		],
-		infobar: false,
-		// hideScrollbar: true
-	})
-
-	// Scrollreveal
-	ScrollReveal().reveal('.js-fadeInBottom',{
-		origin: 'bottom',
-		distance: '50px',
-		delay: 300,
-		duration: 800
-		// reset: true
-	});
-	ScrollReveal().reveal('.js-fadeInLeft',{
-		origin: 'left',
-		distance: '50px',
-		delay: 300,
-		duration: 800
-		// reset: true
-	});
-	ScrollReveal().reveal('.js-fadeInRight',{
-		origin: 'right',
-		distance: '50px',
-		delay: 300,
-		duration: 800
-		// reset: true
-	});
-	ScrollReveal().reveal('.service-item',{
-		origin: 'bottom',
-		distance: '50px',
-		duration: 800,
-		interval: 300
-		// reset: true
-	});
-
-	// OnePageNav
-	$('.js-onePageNav').onePageNav({
-		currentClass: 'active'
-	})
-
-	// Masonry
-	$('.masonry-row').masonry({
-		itemSelector: '.masonry-col'
-	})
-})
 </script>
+
 </html>
